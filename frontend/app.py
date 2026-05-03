@@ -4,7 +4,7 @@ import requests
 # --- CONFIGURATION ---
 # The ID is generated from your agent name "ASX Alpha Broker" -> "asx-alpha-broker"
 ORACLE_IP = "159.13.58.92"
-AGENT_ID = "asx-alpha-broker"
+AGENT_ID = "asx_alpha_broker"
 # The standard Agno AgentOS endpoint for running an agent
 ORACLE_URL = f"http://{ORACLE_IP}:8000/agents/{AGENT_ID}/runs"
 
