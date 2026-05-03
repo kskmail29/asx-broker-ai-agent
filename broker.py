@@ -6,6 +6,7 @@ from agno.tools.yfinance import YFinanceTools
 # 1. Define your agent logic
 agent = Agent(
     name="ASX Alpha Broker",
+    agent_id="asx-alpha-broker",
     model=Claude(id="claude-sonnet-4-6"),
     tools=[YFinanceTools()],
     instructions=[
