@@ -11,12 +11,7 @@ data_miner = Agent(
     name="Data Miner",
     id="data-miner",
     model=Claude(id="claude-sonnet-4-6"),
-    tools=[YFinanceTools(
-        stock_price=True,
-        stock_fundamentals=True,
-        analyst_recommendations=True,
-        technical_indicators=True,
-    )],
+    tools=[YFinanceTools()],
     instructions=[
         "You are a market data specialist covering ASX, NSE India, and US markets.",
         "Ticker suffix rules: ASX stocks → append .AX (e.g. BHP.AX), Indian NSE stocks → append .NS (e.g. RELIANCE.NS), US stocks → no suffix (e.g. AAPL).",
@@ -32,7 +27,7 @@ news_analyst = Agent(
     name="News Analyst",
     id="news-analyst",
     model=Claude(id="claude-sonnet-4-6"),
-    tools=[YFinanceTools(stock_news=True)],
+    tools=[YFinanceTools()],
     instructions=[
         "You are a financial news analyst covering ASX, NSE India, and US markets.",
         "Ticker suffix rules: ASX → .AX, Indian NSE → .NS, US → no suffix.",
