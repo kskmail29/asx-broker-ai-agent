@@ -4,14 +4,14 @@ import requests
 # --- CONFIGURATION ---
 ORACLE_IP = st.secrets["ORACLE_IP"]
 ACCESS_CODE = st.secrets["ACCESS_CODE"]
-AGENT_ID = "asx-alpha-broker"
+AGENT_ID = "global-alpha-broker"
 ORACLE_URL = f"http://{ORACLE_IP}:8000/agents/{AGENT_ID}/runs"
 
-st.set_page_config(page_title="ASX Alpha Broker", page_icon="📈", layout="wide")
+st.set_page_config(page_title="Global Alpha Broker", page_icon="📈", layout="wide")
 
 # --- UI HEADER ---
-st.title("🇦🇺 ASX Alpha Stock Broker")
-st.markdown("**Status:** Connecting to Oracle Cloud Brain")
+st.title("🌏 Global Alpha Stock Broker")
+st.markdown("**Markets covered:** 🇦🇺 ASX &nbsp;|&nbsp; 🇮🇳 NSE India &nbsp;|&nbsp; 🇺🇸 US (NYSE / NASDAQ)")
 
 # --- SIDEBAR SECURITY & SETTINGS ---
 with st.sidebar:
@@ -22,21 +22,21 @@ with st.sidebar:
     st.info("""
     **Instructions:**
     1. Enter the access code.
-    2. Ask for ASX stock analysis.
-    3. If connection fails, ensure you have 'Allowed Insecure Content' in browser settings.
+    2. Ask about ASX, Indian NSE, or US stocks.
+    3. If connection fails, allow 'Insecure Content' in your browser settings.
     """)
 
 # --- MAIN INTERFACE ---
 if access_code == ACCESS_CODE:
     user_query = st.text_area(
         "What is your investment research request?",
-        placeholder="e.g. Find the top 3 gold miners on the ASX and give me a buy/sell rating based on RSI.",
+        placeholder="e.g. Analyse BHP on ASX, Reliance on NSE India, and Apple on NASDAQ — give me a buy/sell rating.",
         height=150
     )
 
     if st.button("🚀 Run Professional Research"):
         if user_query:
-            with st.spinner("Broker is researching ASX data and news..."):
+            with st.spinner("Broker is researching market data and news across agents..."):
                 # Agno AgentOS expects data as Form-Data (application/x-www-form-urlencoded)
                 payload = {
                     "message": user_query,
@@ -73,4 +73,4 @@ else:
 
 # --- FOOTER ---
 st.divider()
-st.caption("Powered by Agno (Phidata), Claude 3.5/3.7, and Oracle Cloud Infrastructure.")
+st.caption("Powered by Agno multi-agent framework, Claude Sonnet, and Oracle Cloud Infrastructure.")
