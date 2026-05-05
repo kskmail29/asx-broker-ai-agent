@@ -2,10 +2,9 @@ import streamlit as st
 import requests
 
 # --- CONFIGURATION ---
-# The ID is generated from your agent name "ASX Alpha Broker" -> "asx-alpha-broker"
-ORACLE_IP = "159.13.58.92"
+ORACLE_IP = st.secrets["ORACLE_IP"]
+ACCESS_CODE = st.secrets["ACCESS_CODE"]
 AGENT_ID = "asx-alpha-broker"
-# The standard Agno AgentOS endpoint for running an agent
 ORACLE_URL = f"http://{ORACLE_IP}:8000/agents/{AGENT_ID}/runs"
 
 st.set_page_config(page_title="ASX Alpha Broker", page_icon="📈", layout="wide")
@@ -28,7 +27,7 @@ with st.sidebar:
     """)
 
 # --- MAIN INTERFACE ---
-if access_code == "ASX2026":
+if access_code == ACCESS_CODE:
     user_query = st.text_area(
         "What is your investment research request?",
         placeholder="e.g. Find the top 3 gold miners on the ASX and give me a buy/sell rating based on RSI.",
