@@ -12,7 +12,7 @@ st.set_page_config(page_title="ASX Alpha Broker", page_icon="📈", layout="wide
 
 # --- UI HEADER ---
 st.title("🇦🇺 ASX Alpha Stock Broker")
-st.markdown(f"**Status:** Connecting to Oracle Cloud Brain at `{ORACLE_IP}`")
+st.markdown("**Status:** Connecting to Oracle Cloud Brain")
 
 # --- SIDEBAR SECURITY & SETTINGS ---
 with st.sidebar:
