@@ -40,7 +40,7 @@ class PromptLogger(BaseHTTPMiddleware):
 broker = Agent(
     name="Global Alpha Broker",
     id="global-alpha-broker",
-    model=Claude(id="claude-sonnet-4-6"),
+    model=Claude(id="claude-haiku-4-5-20251001"),
     tools=[YFinanceTools()],
     instructions=[
         # --- MARKET DETECTION ---
