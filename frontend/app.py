@@ -5,7 +5,7 @@ import requests
 ORACLE_IP = st.secrets["ORACLE_IP"]
 ACCESS_CODE = st.secrets["ACCESS_CODE"]
 AGENT_ID = "global-alpha-broker"
-ORACLE_URL = f"http://{ORACLE_IP}:8000/agents/{AGENT_ID}/runs"
+ORACLE_URL = f"http://{ORACLE_IP}/api/agents/{AGENT_ID}/runs"
 
 st.set_page_config(page_title="Global Alpha Broker", page_icon="📈", layout="wide")
 
